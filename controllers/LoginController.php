@@ -43,7 +43,7 @@ class LoginController {
         }
 
         $router->render('auth/login', [
-            'titulo' => 'Login',
+            'titulo' => 'Iniciar Sesion',
             'ext' => $ext,
             'errores' => $errores           
         ]);
@@ -56,32 +56,33 @@ class LoginController {
 
         $_SESSION = [];
 
-        header('Location: /index.php');
+        header('Location: /');
 
     }
 
     public static function registrar(Router $router) {
+        $usuarios = new Admin;
 
         //? Alertas vacias
         $errores = [];
         $ext = true;
 
-        $usuario = new Admin();
-
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $usuario->sincronizar($_POST);
-            $errores = $usuario->validar();
+            $usuarios->sincronizar($_POST);
+            $errores = $usuarios->validar();
+            //debuguear($usuario);
 
-            if (empty($errores)) {
-                $resultado = $usuario->existeUsuario();
+            if(empty($errores)) {
+                //? Verificar si el usuario existe
+                $resultado = $usuarios->existeUsuario();
 
-                if ($resultado->num_rows) {
+                if($resultado->num_rows) {
                 } else {
                     //? Hashear password
-                    $usuario->hashPassword();
+                    $usuarios->hashPassword();
 
                     //? Almacenar en la base de datos
-                    $resultado = $usuario->guardar();
+                    $resultado = $usuarios->guardar();
 
                     if($resultado) {
                         header('Location: /admin');
@@ -97,7 +98,7 @@ class LoginController {
             'titulo' => 'Registrar Usuario',
             'errores' => $errores,
             'ext' => $ext,
-            'usuario' => $usuario
+            'usuario' => $usuarios
         ]);
     }
 

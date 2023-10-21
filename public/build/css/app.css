@@ -123,7 +123,7 @@ h4 {
 
 .boton {
   padding: 1.5rem;
-  background-color: rgb(26, 136, 26);
+  background-color: #1a881a;
   border: none;
   margin-bottom: 1rem;
   margin-top: 1rem;
@@ -135,7 +135,7 @@ h4 {
 
 .boton-rojo {
   padding: 1.5rem;
-  background-color: rgb(182, 0, 0);
+  background-color: #b60000;
   border: none;
   margin-bottom: 1rem;
   margin-top: 1rem;
@@ -246,12 +246,35 @@ h4 {
   text-align: center;
 }
 
+.not-webp .inicio {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("/build/img/header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.webp .inicio {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("/build/img/header.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .inicio {
-  background-image: url("/build/img/header.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 .inicio h1 {
   color: #FFFFFF;
-  text-align: left;
+  text-align: center;
+  line-height: normal;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .inicio h1 {
+    text-align: left;
+    font-size: 3.8rem;
+  }
 }
 
 .ext {
@@ -291,6 +314,7 @@ h4 {
 .barra .bot {
   font-size: 1.8rem;
   font-family: "PT Sans", sans-serif;
+  font-weight: 900;
   color: #FFFFFF;
 }
 @media (min-width: 768px) {
@@ -316,6 +340,9 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.derecha .derecha-bot {
+  margin-bottom: 1.5rem;
 }
 @media (min-width: 768px) {
   .derecha {
@@ -371,7 +398,7 @@ h4 {
 
 .menu .titulo1 {
   font-family: "Roboto Mono", monospace;
-  font-weight: bold;
+  font-weight: 900;
 }
 @media (min-width: 768px) {
   .menu .iconos-nosotros {
@@ -442,7 +469,7 @@ h4 {
   margin: 1rem;
 }
 .anuncio-contenido .precio {
-  color: rgb(26, 136, 26);
+  color: #1a881a;
   margin: 1rem;
   font-weight: bold;
   font-size: 2.2rem;
@@ -515,7 +542,7 @@ h4 {
 }
 .seccion2 .bot4 {
   background-color: orange;
-  padding: 1.5rem;
+  padding: 1rem;
   color: #FFFFFF;
   margin-bottom: 0;
 }
@@ -760,7 +787,7 @@ h4 {
   text-align: center;
 }
 .alerta.error {
-  background-color: rgb(182, 0, 0);
+  background-color: #b60000;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -775,7 +802,7 @@ table.propiedades {
   border-spacing: 0;
 }
 table.propiedades thead {
-  background-color: rgb(26, 136, 26);
+  background-color: #1a881a;
 }
 table.propiedades thead th {
   color: #FFFFFF;

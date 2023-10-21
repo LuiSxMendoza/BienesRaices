@@ -10,6 +10,8 @@ class PropiedadController {
 
     public static function index(Router $router) {
 
+        estaAutenticado();
+
         $ext = true;
         $propiedades = Propiedad::all();
         $vendedor = vendedores::all();
@@ -26,6 +28,8 @@ class PropiedadController {
     }
 
     public static function crear(Router $router) {
+
+        estaAutenticado();
 
         $ext = true;
         $propiedad = new Propiedad;
@@ -79,6 +83,8 @@ class PropiedadController {
     }
 
     public static function actualizar(Router $router) {
+
+        estaAutenticado();
 
         $id = validarORedireccionar('/admin');
 
@@ -134,6 +140,8 @@ class PropiedadController {
 
     public static function eliminar() {
 
+        estaAutenticado();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             //? Validar id
@@ -152,5 +160,4 @@ class PropiedadController {
             }
         }
     }
-
 }

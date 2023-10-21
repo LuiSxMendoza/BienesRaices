@@ -9,6 +9,8 @@ class VendedoresController {
 
     public static function crear(Router $router) {
 
+        estaAutenticado();
+
         $ext = true;
         $errores = vendedores::getErrores();
         $vendedor = new vendedores;
@@ -32,6 +34,7 @@ class VendedoresController {
         }
 
         $router->render('vendedores/crear', [
+            'titulo' => 'Registrar Vendedor',
             'errores' => $errores,
             'vendedor' => $vendedor,
             'ext' => $ext
@@ -40,6 +43,8 @@ class VendedoresController {
     }
 
     public static function actualizar(Router $router) {
+
+        estaAutenticado();
 
         $id = validarORedireccionar('/admin');
 
@@ -67,6 +72,7 @@ class VendedoresController {
         }
 
         $router->render('vendedores/actualizar', [
+            'titulo' => 'Actualizar Vendedor',
             'vendedor' => $vendedor,
             'errores' => $errores,
             'ext' => $ext
@@ -75,6 +81,8 @@ class VendedoresController {
     }
 
     public static function eliminar() {
+
+        estaAutenticado();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

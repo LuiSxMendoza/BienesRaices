@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class Admin extends activeRecord {
+class Admin extends ActiveRecord {
 
     //? Base de datos
     protected static $tabla = 'usuarios';
@@ -27,6 +27,13 @@ class Admin extends activeRecord {
         if (!$this->password) {
             self::$errores[] = "La contraseña es obligatoria";
         }
+        if(strlen($this->password) < 6) {
+            self::$errores[] = "El password debe contener al menos
+            6 caracteres";
+        }
+        if(!preg_match('^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})^', $this->email)) {
+            self::$errores[] = "Ingresa un email valido";
+        }
 
         return self::$errores;
     }
@@ -34,7 +41,8 @@ class Admin extends activeRecord {
     public function existeUsuario() {
 
         //? Revisar si un usuario existe
-        $query = "SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1";
+        $query = "SELECT * FROM " . self::$tabla . 
+        " WHERE email = '" . $this->email . "' LIMIT 1";
 
         $resultado = self::$db->query($query);
 

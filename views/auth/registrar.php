@@ -3,12 +3,18 @@
         <h1>Crear Cuenta</h1>
 
         <?php foreach($errores as $error): ?>
-        <div class="alerta error">
-            <?php echo $error ?>
-        </div>
+            <div class="alerta error">
+                <?php 
+                    echo $error;
+                    $page = $_SERVER['REQUEST_URI'];
+                    //debuguear($_SERVER);
+                    $sec = "3";
+                    header("Refresh: $sec; url=$page");
+                ?>
+            </div>
         <?php endforeach; ?>
 
-        <form method="POST" class="formulario" action="/registrar">
+        <form method="POST" class="formulario" action="/registrar-lm">
             <fieldset class="form2">
 
                 <legend>Ingresa tus Datos</legend>

@@ -37,8 +37,8 @@ $router->post('/contacto', [PaginasController::class, 'contacto']);
 //! Zona de Login
 $router->get('/login', [LoginController::class, 'login']);
 $router->post('/login', [LoginController::class, 'login']);
-$router->get('/registrar', [LoginController::class, 'registrar']);
-$router->post('/registrar', [LoginController::class, 'registrar']);
+$router->get('/registrar-lm', [LoginController::class, 'registrar']);
+$router->post('/registrar-lm', [LoginController::class, 'registrar']);
 $router->get('/logout', [LoginController::class, 'logout']);
 
 $router->comprobarRutas();

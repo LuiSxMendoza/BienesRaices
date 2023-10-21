@@ -4,7 +4,13 @@
 
         <?php foreach($errores as $error): ?>
         <div class="alerta error">
-            <?php echo $error ?>
+            <?php 
+                echo $error;
+                $page = $_SERVER['REQUEST_URI'];
+                //debuguear($_SERVER);
+                $sec = "3";
+                header("Refresh: $sec; url=$page");
+            ?>
         </div>
         <?php endforeach; ?>
 

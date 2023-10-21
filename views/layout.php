@@ -8,14 +8,15 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienes Raices - <?php echo $titulo ?? ''; ?></title>
 
-    <link rel="icon" href="build/img/Recurso4x.png">
+    <link rel="icon" href="/build/img/Recurso4x.png">
 
     <link rel="stylesheet" href="/build/css/normalize.css">
     <link rel="stylesheet" href="/build/css/app.css">
@@ -26,7 +27,7 @@
     <header class="header barra <?php echo isset ($ext) ? 'ext' : ''; ?> <?php echo isset ($inicio) ? 'inicio' : ''; ?>">
         <div class="contenedor cont-header">
             <div class="navegacion">
-                <a href="/index.php">
+                <a href="/">
                     <img src="/build/img/logo.svg" alt="logotipo">
                 </a>
 

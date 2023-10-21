@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class activeRecord {
+class ActiveRecord {
     //! Base de datos
     protected static $db;
     protected static $columnasDB = [];
